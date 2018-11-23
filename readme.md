@@ -31,7 +31,7 @@ GCPにおけるVMを管理する
 - ansible
   - packerで生成したdockerイメージにansibleを流してローカルにアプリケーションを立てる
 - terraform
-  - packerで生成したgceイメージにterraformを流してGCPにアプリケーションを立てる
+  - packerで生成したGCEイメージにterraformを流してGCPにアプリケーションを立てる
 
 ### network
 

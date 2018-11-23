@@ -1,2 +1,3 @@
 #!/bin/bash
-packer build docker.json
+packer build vm.json
+docker run -it gcp_fabric -p 2222:22
