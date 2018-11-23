@@ -1,0 +1,34 @@
+{
+  "builders": [
+    {
+      "name": "centos6-docker",
+      "type": "docker",
+      "image": "centos",
+      "export_path": "centos6-docker.tar"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "yum -y update",
+        "yum install -y openssh-server",
+        "echo 'root:PASSWORD' | chpasswd",
+        "ssh-keygen -q -N '' -t dsa -f /etc/ssh/ssh_host_dsa_key",
+        "ssh-keygen -q -N '' -t rsa -f /etc/ssh/ssh_host_rsa_key",
+        "sed -i 's/UsePAM.*/UsePAM no/g' /etc/ssh/sshd_config",
+        "sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "docker-import",
+      "repository": "centos6",
+      "tag": "latest",
+      "only": [
+        "centos6-docker"
+      ]
+    }
+  ]
+}
