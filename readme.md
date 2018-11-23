@@ -40,5 +40,7 @@ GCPにおけるVMの周辺にあるLB/Storage/RDBのサービスとネットワ�
 ## メモ
 
 [SSHで接続可能なDocker用のCentOSイメージをPackerで生成する](https://qiita.com/ikuyamada/items/9cce2fa28b17c8d794e3)
+
 [Fabricを使用してDockerイメージを生成する](https://qiita.com/ikuyamada/items/03e7677c596678d300d9)
+
 [Packerを使ってDockerのイメージを作成する](https://qiita.com/hirohero/items/9d306c0ff6b2b6a58f7a)
