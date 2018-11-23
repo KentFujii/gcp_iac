@@ -33,7 +33,7 @@ GCPにおけるVMを管理する
 - terraform
   - packerで生成したgceイメージにterraformを流してGCPにアプリケーションを立てる
 
-## network
+### network
 
 GCPにおけるVMの周辺にあるLB/Storage/RDBのサービスとネットワークを管理する
 
