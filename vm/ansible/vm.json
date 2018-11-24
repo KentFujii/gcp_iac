@@ -1,0 +1,35 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "debian",
+      "export_path": "image.tar"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "apt-get -y update",
+        "apt-get -y install python-pip python-dev python-flask python-wtforms python-arrow python-flask-sqlalchemy python-pymysql python-flaskext.wtf",
+        "mkdir /app"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "../app/",
+      "destination": "/app"
+    },
+    {
+      "type": "shell",
+      "inline": ["cd /app"]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "docker-import",
+      "repository": "gcp_fabric",
+      "tag": "latest"
+    }
+  ]
+}

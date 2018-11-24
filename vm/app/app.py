@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from flask import Flask, render_template, request, redirect, url_for
 from flask import escape, Markup
 from wtforms import Form, TextAreaField, StringField, validators, ValidationError
