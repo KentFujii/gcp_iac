@@ -22,22 +22,20 @@ Terraform
 
 ### vm
 
-GCPにおけるVMを管理する
+IaCツールを使ってVMを管理する
 
 - ansible
-  - packer内部で流されるplaybookを記述する
+  - packer内部で流されるansibleを管理する
 - testinfra
-  - packer内部で流されるplaybookをテストする
+  - packer内部で流されるansibleをテストする
 - packer
-  - Dockerイメージを生成する
-  - GCEイメージを生成する
+  - ansibleを元にDockerイメージを生成する
 - terraform
   - packerで生成したDockerイメージにterraformを流してローカルにアプリケーションを立てる
-  - packerで生成したGCEイメージにterraformを流してGCPにアプリケーションを立てる
 
 ### network
 
-GCPにおけるVMの周辺にあるLB/Storage/RDBのサービスとネットワークを管理する
+GCPにおけるVM/LB/RDB/Storageのサービスとネットワークを管理する
 
 ## メモ
 
@@ -50,3 +48,7 @@ GCPにおけるVMの周辺にあるLB/Storage/RDBのサービスとネットワ�
 [testinfra – インフラストラクチャをテストする](https://githubja.com/philpep/testinfra)
 
 [Packerを使ってDockerのイメージを作成する](https://qiita.com/hirohero/items/9d306c0ff6b2b6a58f7a)
+
+[Testing Ansible Role with Molecule, Docker, Testinfra & Goss](https://medium.com/@chaks/testing-ansible-role-with-molecule-docker-testinfra-goss-part-1-c0277b748b63)
+
+[dockerでmysqlを使う](https://qiita.com/astrsk_hori/items/e3d6c237d68be1a6f548)
