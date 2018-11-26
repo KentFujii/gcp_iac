@@ -10,14 +10,16 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 
 #### Edit Here
-dbuser = 'appuser'
-dbpass = 'pas4appuser'
-dbinstance = '<Your_Instance_Connection_Name>'
+dbuser = 'root'
+dbpass = 'password'
+dbhost = 'mysql'
 ####
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = \
-    'mysql+pymysql://%s:%s@/message_db?unix_socket=/cloudsql/%s' % (dbuser, dbpass, dbinstance)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///message.db'
+db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = \
+#     'mysql+pymysql://%s:%s@%s/message_db' % (dbuser, dbpass, dbhost)
 db = SQLAlchemy(app)
 
 class Message(db.Model):
@@ -70,4 +72,4 @@ def post():
         return redirect(url_for('messages'))
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=80, debug=False)
+    app.run(host="0.0.0.0", port=8080, debug=False)

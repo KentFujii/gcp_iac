@@ -3,7 +3,7 @@
     {
       "type": "docker",
       "image": "debian",
-      "export_path": "image.tar"
+      "export_path": "vm.tar"
     }
   ],
   "provisioners": [
@@ -28,7 +28,7 @@
   "post-processors": [
     {
       "type": "docker-import",
-      "repository": "gcp_iac_vm",
+      "repository": "gcp_iac_vm_app",
       "tag": "latest"
     }
   ]
