@@ -2,15 +2,17 @@ provider "docker" {
   host = "unix:///var/run/docker.sock"
 }
 
-resource "docker_container" "nginx" {
-  image = "${docker_image.nginx.latest}"
-  name  = "enginecks"
-  ports {
-    internal = 80
-    external = 80
-  }
+resource "docker_image" "mysql" {
+  name = "mysql:latest"
 }
 
-resource "docker_image" "nginx" {
-  name = "nginx:latest"
+resource "docker_container" "mysql" {
+  image = "${docker_image.mysql.latest}"
+  name  = "db"
+  hostname = "db"
+  env = ["MYSQL_ROOT_PASSWORD=password"]
+  ports {
+    internal = 3306
+    external = 3306
+  }
 }
