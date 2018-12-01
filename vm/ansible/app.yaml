@@ -1,0 +1,22 @@
+- hosts: all
+  become: true
+  environment:
+    DEBUG: true
+    FTP_USERS_ROOT: /srv
+    FTP_USER_ambition: 'ambition:$6$vdvBXEVS$OeIQyvMHGk1PyvJe3xdB1qocfSC5Lbr51w2ZKsDdii/RGG0EqTcOhyYCOBF.au6GapcQ69IcrPMtyXGMzoNOu1'
+
+  tasks:
+  - name: Ensure group "ftp" exists
+    group:
+      name: ftp
+      state: present
+
+  - name: Add the user 'ftp' with a specific uid and a primary group of 'ftp'
+    user:
+      name: ftp
+      uid: 48
+      group: ftp
+      create_home: no
+      home: /srv
+      comment: ftp daemon
+      shell: /bin/false
