@@ -11,18 +11,14 @@
       "type": "shell",
       "inline": [
         "apt-get -y update",
-        "apt-get -y install python-pip python-dev python-flask python-wtforms python-arrow python-flask-sqlalchemy python-pymysql python-flaskext.wtf mysql-client",
-        "mkdir /app"
+        "apt-get -y install python python-pip mysql-client"
       ]
     },
     {
-      "type": "file",
-      "source": "{{pwd}}/app/",
-      "destination": "/app"
-    },
-    {
-      "type": "shell",
-      "inline": ["cd /app"]
+      "type": "ansible",
+      "user": "root",
+      "inventory_directory": "{{pwd}}/../ansible/",
+      "playbook_file": "{{pwd}}/../ansible/app.yaml"
     }
   ],
   "post-processors": [
