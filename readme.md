@@ -25,9 +25,9 @@ Terraform
 IaCツールを使ってVMを管理する
 
 - ansible
-  - packer内部で流されるansibleを管理する
+  - packer内部で流されるプロビジョニングを管理する
 - testinfra
-  - packer内部で流されるansibleをテストする
+  - packer内部で流されるプロビジョニングをテストする
 - packer
   - ansibleを元にDockerイメージを生成する
 - terraform
