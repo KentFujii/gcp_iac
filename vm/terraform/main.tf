@@ -15,4 +15,8 @@ resource "docker_container" "mysql" {
     internal = 3306
     external = 3306
   }
+  volumes = {
+    volume_name = "${path.module}/../db/"
+    container_path = "/docker-entrypoint-initdb.d/"
+  }
 }
