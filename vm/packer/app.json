@@ -24,7 +24,7 @@
   "post-processors": [
     {
       "type": "docker-import",
-      "repository": "gcp_iac_vm_app",
+      "repository": "localhost:5000/gcp_iac_vm_app",
       "tag": "latest"
     }
   ]
