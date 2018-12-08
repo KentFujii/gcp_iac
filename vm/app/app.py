@@ -12,14 +12,12 @@ from sqlalchemy import desc
 #### Edit Here
 dbuser = 'root'
 dbpass = 'password'
-dbhost = 'mysql'
+dbhost = 'db'
 ####
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///message.db'
-db = SQLAlchemy(app)
-# app.config['SQLALCHEMY_DATABASE_URI'] = \
-#     'mysql+pymysql://%s:%s@%s/message_db' % (dbuser, dbpass, dbhost)
+app.config['SQLALCHEMY_DATABASE_URI'] = \
+    'mysql+pymysql://%s:%s@%s/message_db' % (dbuser, dbpass, dbhost)
 db = SQLAlchemy(app)
 
 class Message(db.Model):

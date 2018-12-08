@@ -43,5 +43,5 @@ resource "docker_image" "db" {
 }
 
 resource "docker_image" "app" {
-  name = "localhost:5000/gcp_iac_vm_app"
+  name = "kentfujii/gcp_iac_vm_app"
 }

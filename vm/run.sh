@@ -1,15 +1,11 @@
 #!/bin/bash
 cd `dirname $0`
 
-# # prepare registory
-# docker pull registry
-# docker run -d -p 5000:5000 registry
-
-# # create image
-# (
-#   cd packer
-#   packer build app.json
-# )
+# create image
+(
+  cd packer
+  packer build -var-file=secret.json app.json
+)
 
 # orchestrate image
 (
@@ -17,5 +13,3 @@ cd `dirname $0`
   terraform init
   terraform apply -auto-approve
 )
-# docker run -p 8080:8080 -it gcp_iac_vm_app /bin/bash -c "cd /app && python app.py"
-# docker run --name mysql -e MYSQL_ROOT_PASSWORD=mysql -d -p 3306:3306 mysql

@@ -1,1 +1,1 @@
-create database message_db;
+CREATE DATABASE message_db DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
