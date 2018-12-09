@@ -5,8 +5,6 @@
 ## getting started
 
 ```
-Ansible
-Testinfra
 Packer
 Terraform
 ```

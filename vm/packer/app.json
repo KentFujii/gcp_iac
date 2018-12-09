@@ -15,10 +15,16 @@
       ]
     },
     {
-      "type": "ansible",
-      "user": "root",
-      "inventory_directory": "{{pwd}}/../ansible/",
-      "playbook_file": "{{pwd}}/../ansible/app.yaml"
+      "type": "file",
+      "source": "{{pwd}}/../app/",
+      "destination": "/app/"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "cd /app",
+        "pip install -r requirements.txt"
+      ]
     }
   ],
   "post-processors": [
