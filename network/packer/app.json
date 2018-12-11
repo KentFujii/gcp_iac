@@ -1,0 +1,12 @@
+{
+  "builders": [
+    {
+      "type": "googlecompute",
+      "account_file": "secret.json",
+      "project_id": "ethereal-argon-189102",
+      "source_image": "debian-7-wheezy-v20150127",
+      "ssh_username": "kent",
+      "zone": "asia-northeast1-a"
+    }
+  ]
+}
