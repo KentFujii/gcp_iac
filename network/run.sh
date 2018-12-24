@@ -1,8 +1,13 @@
 #!/bin/bash
 cd `dirname $0`
 
-# create image
+# (
+#   cd packer
+#   packer build -var-file=gcp_secret.json -force app.json
+# )
+
 (
-  cd packer
-  packer build -var-file=secret.json app.json
+  cd terraform
+  terraform init
+  terraform apply -auto-approve
 )

@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "docker",
-      "image": "debian",
+      "image": "ubuntu",
       "export_path": "vm.tar"
     }
   ],
@@ -16,8 +16,8 @@
     },
     {
       "type": "file",
-      "source": "{{pwd}}/../app/",
-      "destination": "/app/"
+      "source": "{{pwd}}/../app",
+      "destination": "/app"
     },
     {
       "type": "shell",

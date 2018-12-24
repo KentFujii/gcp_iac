@@ -1,4 +1,4 @@
 memo.txt
 *.tfstate*
 .terraform/
-secret.json
+*secret.json

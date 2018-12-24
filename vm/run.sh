@@ -1,13 +1,11 @@
 #!/bin/bash
 cd `dirname $0`
 
-# create image
 (
   cd packer
-  packer build -var-file=secret.json app.json
+  packer build -var-file=dockerhub_secret.json app.json
 )
 
-# orchestrate image
 (
   cd terraform
   terraform init

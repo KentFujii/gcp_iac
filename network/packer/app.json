@@ -2,11 +2,33 @@
   "builders": [
     {
       "type": "googlecompute",
-      "account_file": "secret.json",
-      "project_id": "ethereal-argon-189102",
-      "source_image": "debian-7-wheezy-v20150127",
-      "ssh_username": "kent",
-      "zone": "asia-northeast1-a"
+      "project_id": "{{user `project_id`}}",
+      "account_file": "{{user `account_file`}}",
+      "source_image_family": "ubuntu-1804-lts",
+      "zone": "asia-northeast1-a",
+      "image_name": "gcp-iac",
+      "ssh_username": "root"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "apt-get -y update",
+        "apt-get -y install python python-pip mysql-client"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "{{pwd}}/../app",
+      "destination": "/app"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "cd /app",
+        "pip install -r requirements.txt"
+      ]
     }
   ]
 }
