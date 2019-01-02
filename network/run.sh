@@ -6,8 +6,11 @@ cd `dirname $0`
 #   packer build -var-file=gcp_secret.json -force app.json
 # )
 
-(
-  cd terraform
-  terraform init
-  terraform apply -auto-approve
-)
+
+# sql
+# storage
+# (
+#   cd terraform
+#   terraform init
+#   terraform apply -auto-approve
+# )

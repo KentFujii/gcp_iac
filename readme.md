@@ -5,11 +5,20 @@
 ## getting started
 
 ```
+Jsonnet
 Packer
 Terraform
 ```
 
 を手元にインストールしてください
+
+またkubernetes環境に下記をインストールしてください
+
+```
+helm
+istio
+spinnaker
+```
 
 ## index
 

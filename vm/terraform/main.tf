@@ -40,8 +40,10 @@ resource "docker_container" "gcp_iac_vm_app" {
 
 resource "docker_image" "db" {
   name = "mysql:5.6"
+  keep_locally = true
 }
 
 resource "docker_image" "app" {
   name = "kentfujii/gcp_iac_vm_app"
+  keep_locally = true
 }
