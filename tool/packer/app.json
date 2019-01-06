@@ -1,13 +1,9 @@
 {
   "builders": [
     {
-      "type": "googlecompute",
-      "project_id": "{{user `project_id`}}",
-      "account_file": "{{user `account_file`}}",
-      "source_image_family": "ubuntu-1804-lts",
-      "zone": "asia-northeast1-a",
-      "image_name": "gcp-iac",
-      "ssh_username": "root"
+      "type": "docker",
+      "image": "ubuntu",
+      "export_path": "vm.tar"
     }
   ],
   "provisioners": [
@@ -30,5 +26,20 @@
         "pip install -r requirements.txt"
       ]
     }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-import",
+        "repository": "kentfujii/gcp_iac_vm_app",
+        "tag": "latest"
+      },
+      {
+        "type": "docker-push",
+        "login": true,
+        "login_username": "{{user `login_username`}}",
+        "login_password": "{{user `login_password`}}"
+      }
+    ]
   ]
 }

@@ -27,16 +27,16 @@ spinnaker
 - [ ] container: コンテナ実行環境でマイクロサービスアーキテクチャを体験しよう
 - [ ] ml: 機械学習を用いたGAEアプリケーション
 
-### vm
+### tool
 
-IaCツールを使ってVMを管理する
+IaCツールを使ってみる
 
 - packer
   - Dockerイメージを生成する
 - terraform
   - packerで生成したイメージにterraformを流してローカルにアプリケーションを立てる
 
-### network
+### vm
 
 GCPにおけるVM/LB/RDB/Storageのサービスとネットワークを管理する
 

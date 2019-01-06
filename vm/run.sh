@@ -1,13 +1,16 @@
 #!/bin/bash
 cd `dirname $0`
 
-(
-  cd packer
-  packer build -var-file=dockerhub_secret.json app.json
-)
+# (
+#   cd packer
+#   packer build -var-file=gcp_secret.json -force app.json
+# )
 
-(
-  cd terraform
-  terraform init
-  terraform apply -auto-approve
-)
+
+# sql
+# storage
+# (
+#   cd terraform
+#   terraform init
+#   terraform apply -auto-approve
+# )
