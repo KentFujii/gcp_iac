@@ -2,6 +2,8 @@ provider "docker" {
   host = "unix:///var/run/docker.sock"
 }
 
+variable "app_image_id" {}
+
 resource "docker_network" "gcp_iac_vm_network" {
   name = "gcp_iac_vm"
 }
@@ -25,7 +27,7 @@ resource "docker_container" "gcp_iac_vm_db" {
 }
 
 resource "docker_container" "gcp_iac_vm_app" {
-  image = "${docker_image.app.latest}"
+  image = "${var.app_image_id}"
   name  = "app"
   hostname = "app"
   ports {
@@ -36,14 +38,10 @@ resource "docker_container" "gcp_iac_vm_app" {
     name = "${docker_network.gcp_iac_vm_network.name}"
   }
   command = ["bash", "-c", "cd /app && python app.py"]
+  restart = "always"
 }
 
 resource "docker_image" "db" {
   name = "mysql:5.6"
-  keep_locally = true
-}
-
-resource "docker_image" "app" {
-  name = "kentfujii/gcp_iac_vm_app"
   keep_locally = true
 }

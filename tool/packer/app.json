@@ -28,18 +28,10 @@
     }
   ],
   "post-processors": [
-    [
-      {
-        "type": "docker-import",
-        "repository": "kentfujii/gcp_iac_vm_app",
-        "tag": "latest"
-      },
-      {
-        "type": "docker-push",
-        "login": true,
-        "login_username": "{{user `login_username`}}",
-        "login_password": "{{user `login_password`}}"
-      }
-    ]
+    {
+      "type": "docker-import",
+      "repository": "kentfujii/gcp_iac_vm_app",
+      "tag": "latest"
+    }
   ]
 }
