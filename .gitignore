@@ -1,4 +1,5 @@
 memo.txt
+account.json
+secret.*
 *.tfstate*
 .terraform/
-*secret.json

@@ -1,5 +1,5 @@
 provider "google" {
-  project = "ethereal-argon-189102"
+  project = "${local.project}"
   region  = "asia-northeast1"
   zone    = "asia-northeast1-a"
 }
